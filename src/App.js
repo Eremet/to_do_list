@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+// import Background from "./images/wood.jpg"
 
 export default function App() {
   const [data, setData] = useState(JSON.parse(localStorage.getItem('todos')) || [])
@@ -62,7 +63,9 @@ const useStyles = makeStyles({
   },
   bg: {
     backgroundColor: '#5ED0BD',
-    paddingBottom: '5%',
+    paddingBottom: '2%',
+    backgroundImage: `url(${"./images/wood.jpg"})`,
+    marginTop: '-3.2%'
   },
   div: {
     marginLeft: '20%',
@@ -73,9 +76,14 @@ const useStyles = makeStyles({
   },
   text: {
     color: 'white',
-    fontSize: '25px',
-    marginLeft: '5%',
-    marginTop: '-1%'
+    fontSize: '50px',
+    marginLeft: '55%',
+    marginTop: '-6%'
+  },
+  never: {
+    fontSize: '120px',
+    marginLeft: '15%',
+    color: 'white',
   }
 });
 const classes = useStyles();
@@ -102,15 +110,15 @@ const classes = useStyles();
                 ADD
               </Button>
        
-        <h4 className={classes.text}>Keep calm<br/>          and carry oN</h4>
       </form>
-
+      <h4 className={classes.text}>Keep calm<br/>and carry on</h4>
       <List
         data={data}
         done={doneTodo}
         delete = {deleteTodo}
         save = {save}
       />
+      <h1 className={classes.never}>Never say never</h1>
     </div>
   )
 }

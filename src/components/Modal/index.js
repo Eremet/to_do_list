@@ -48,32 +48,31 @@ export default function Modal(props) {
         }}>
             <h2 className={classes.text}>EdiT</h2>
             <Button
-                                 onClick={()=>
-                                    props.setShowModal(false)
-                                }
-                                variant="contained"
-                                color="secondary"
-                                
-                                startIcon={<CancelPresentationIcon />}
-                                className={classes.button} 
-                            >
-                                Close
-                            </Button>
-           
+                onClick={()=>
+                props.setShowModal(false)
+                }
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                startIcon={<CancelPresentationIcon />}
+                className={classes.button} 
+            >
+            Close
+            </Button>
             <h4>{props.name}</h4>
             <TextField className={classes.root} id="outlined-basic" label="enter text" variant="outlined" onChange={(event)=>{
                     setVal(event.target.value)
                 }} />
             <Button
-                                onClick={ saveEdit }
-                                variant="contained"
-                                color="secondary"
-                                className={classes.button}
-                                startIcon={<SaveIcon />}
-                                className={classes.button} 
-                            >
-                                Save
-                            </Button>
+                onClick={ saveEdit }
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                startIcon={<SaveIcon />}
+                className={classes.button} 
+            >
+            Save
+            </Button>
            
             
         </div>

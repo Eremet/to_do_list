@@ -60,6 +60,7 @@ export default function List(props) {
                             {
                                 el.status ? '' :
                                 <Button
+                                    style={{ zIndex: '1'}}
                                     onClick={()=>props.done(el.id)}
                                     className={classes.button} 
                                     variant="contained"
@@ -71,6 +72,7 @@ export default function List(props) {
                                 </Button>
                             }
                             <Button
+                                style={{ zIndex: '1'}}
                                 onClick={()=>props.delete(el.id)}
                                 variant="contained"
                                 color="secondary"
@@ -81,6 +83,7 @@ export default function List(props) {
                                 Delete
                             </Button>
                             <Button
+                                style={{ zIndex: '1'}}
                                 variant="contained"
                                 color="secondary"
                                 className={classes.button}
