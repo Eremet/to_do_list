@@ -4,6 +4,7 @@ import List from './components/List'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
 
 export default function App() {
   const [data, setData] = useState(JSON.parse(localStorage.getItem('todos')) || [])
@@ -61,10 +62,20 @@ const useStyles = makeStyles({
   },
   bg: {
     backgroundColor: '#5ED0BD',
-    paddingBottom: '5%'
+    paddingBottom: '5%',
   },
   div: {
     marginLeft: '20%',
+  },
+  button: {
+    marginLeft: '5%',
+    height: '40px'
+  },
+  text: {
+    color: 'white',
+    fontSize: '25px',
+    marginLeft: '5%',
+    marginTop: '-1%'
   }
 });
 const classes = useStyles();
@@ -80,9 +91,18 @@ const classes = useStyles();
       <TextField className={classes.root} id="outlined-basic" label="enter text" variant="outlined" onChange={(event)=>{
             setVal(event.target.value)
           }}/>
-        <Button variant="outlined" color="secondary">
-       ADD
-        </Button>
+            <Button
+                
+                variant="contained"
+                color="secondary"
+                className={classes.button}
+                startIcon={<AddIcon />}
+                className={classes.button} 
+                >
+                ADD
+              </Button>
+       
+        <h4 className={classes.text}>Keep calm<br/>          and carry oN</h4>
       </form>
 
       <List

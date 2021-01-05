@@ -1,29 +1,10 @@
 import React, {useState} from 'react'
 import Modal from '../Modal'
-import { makeStyles } from '@material-ui/core/styles';
+import DeleteIcon from '@material-ui/icons/Delete';
+import DoneIcon from '@material-ui/icons/Done';
+import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button'
-
-
-const useStyles = makeStyles({
-    root: {
-        margin: '5%',
-        border: '10px solid grey',
-        borderRadius: '25px'
-    },
-    text: {
-        fontSize: '20px',
-        marginLeft: '5%',
-        color: 'white'
-    },
-    buttons: {
-        marginLeft: '4.5%',
-        marginBottom: '2%'
-    },
-    button: {
-        color: 'white',
-        background: 'grey'
-    }
-});
+import { makeStyles} from '@material-ui/core/styles'
 
 export default function List(props) {
     const [todo, setTodo] = useState('')
@@ -35,6 +16,28 @@ export default function List(props) {
         setShowModal(true)
         setId(id)
     }
+
+    const useStyles = makeStyles({
+    root: {
+        margin: '5%',
+        border: '10px solid grey',
+        borderRadius: '25px'
+    },
+    text: {
+        fontSize: '20px',
+        marginLeft: '9%',
+        color: 'white'
+    },
+    buttons: {
+        marginLeft: '4.5%',
+        marginBottom: '2%'
+    },
+    button: {
+        color: 'white',
+        background: 'grey',
+        marginLeft: '5%'
+    }
+});
 
     const classes = useStyles();
 
@@ -56,16 +59,36 @@ export default function List(props) {
                             <div className={classes.buttons}>
                             {
                                 el.status ? '' :
-                                <Button className={classes.button} variant="outlined" onClick={()=>props.done(el.id)}>
-                                Done
+                                <Button
+                                    onClick={()=>props.done(el.id)}
+                                    className={classes.button} 
+                                    variant="contained"
+                                    color="secondary"
+                                    className={classes.button}
+                                    startIcon={<DoneIcon />}
+                                >
+                                    Done
                                 </Button>
                             }
-                            
-                            <Button className={classes.button} variant="outlined"  onClick={()=>props.delete(el.id)}>
-                            Delete
+                            <Button
+                                onClick={()=>props.delete(el.id)}
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                startIcon={<DeleteIcon />}
+                                className={classes.button} 
+                            >
+                                Delete
                             </Button>
-                            <Button className={classes.button} variant="outlined"  onClick={()=>edit(el.todo, el.id)}>
-                            Edit
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                className={classes.button}
+                                startIcon={<EditIcon />}
+                                className={classes.button}
+                                onClick={()=>edit(el.todo, el.id)}
+                            >
+                                Edit
                             </Button>
                             </div>    
                         </div>
